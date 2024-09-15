@@ -7,7 +7,7 @@ void main() {
       "name": "Leanne Graham",
       "username": "Bret",
       "email": "Sincere@april.biz",
-      "pass": "123456",
+      "password": "123456",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
@@ -205,33 +205,38 @@ void main() {
     }
   ];
   // for (var i = 0; i < users.length; i++) {
-  //   print('                  ');
-  //   print("name:  ${users[i]['name']}");
-  //   print("city:  ${users[i]['address']['city']}");
-  //   print("geo-Lat:  ${users[i]['address']['geo']['lat']}");
-  //   print("geo-lng:  ${users[i]['address']['geo']['lng']}");
-  //   print('                  ');
+  //   print("                                ");
+  //   print("Name: ${users[i]['name']}");
+  //   print("City: ${users[i]['address']['city']}");
+  //   print("Lat: ${users[i]['address']['geo']['lat']}");
+  //   print("Lng: ${users[i]['address']['geo']['lng']}");
+  //   print("                                ");
   // }
 
-  // for(var user in users) {
-
+  // for (var element in users) {
+  //   print("                                ");
+  //   print("Name: ${element['name']}");
+  //   print("City: ${element['address']['city']}");
+  //   print("Lat: ${element['address']['geo']['lat']}");
+  //   print("Lng: ${element['address']['geo']['lng']}");
+  //   print("                                ");
   // }
 
-  int maxAttemps = 3;
-  int attemps = 0;
+  // int maxAttemps = 3;
+  // int attemps = 0;
   // while (attemps < maxAttemps) {
   //   var email = stdin.readLineSync();
   //   var password = stdin.readLineSync();
   //   if (email == 'abc@gmail.com' && password == '123456') {
-  //     print("login successfull..............");
+  //     print("Login successfull............");
   //     break;
   //   } else {
   //     attemps++;
   //     if (attemps == maxAttemps) {
-  //       print("your account has been locked!..........");
+  //       print("your account has been locked!.............");
   //     } else {
-  //       print("Invalid email or password!..........");
-  //       print("Please try again...........");
+  //       print("Invalid email or password.............");
+  //       print("please try again.............");
   //     }
   //   }
   // }
@@ -240,15 +245,15 @@ void main() {
   //   var email = stdin.readLineSync();
   //   var password = stdin.readLineSync();
   //   if (email == 'abc@gmail.com' && password == '123456') {
-  //     print("login successfull..............");
+  //     print("Login successfull............");
   //     break;
   //   } else {
   //     attemps++;
   //     if (attemps == maxAttemps) {
-  //       print("your account has been locked!..........");
+  //       print("your account has been suspended.............");
   //     } else {
-  //       print("Invalid email or password!..........");
-  //       print("Please try again...........");
+  //       print("Invalid email or password.............");
+  //       print("please try again.............");
   //     }
   //   }
   // } while (attemps < maxAttemps);
@@ -260,7 +265,7 @@ void main() {
 }
 
 printTable(table) {
-  for (var i = 0; i < 10; i++) {
+  for (var i = 1; i <= 10; i++) {
     print(i * table);
   }
 }
