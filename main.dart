@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  List users = [
+  List<Map> users = [
     {
       "id": 1,
       "name": "Leanne Graham",
@@ -258,10 +258,47 @@ void main() {
   //   }
   // } while (attemps < maxAttemps);
 
-  printTable(5);
-  printTable(6);
-  printTable(7);
-  printTable(8);
+  // printTable(5);
+  // printTable(6);
+  // printTable(7);
+  // printTable(8);
+
+  List<Map> students = [
+    {
+      "name": "",
+      "rollNo": "",
+      "subjects": {
+        "English": 30,
+        "Urdu": 30,
+      },
+    },
+  ];
+  for (var student in students) {
+    var result = calculateStudentMarks(student);
+    // student['percentage'] = result['percentage'];
+    // student['Grade'] = result['Grade'];
+    student
+        .addAll({"percentage": result['percentage'], "Grade": result['Grade']});
+  }
+  // print(students);
+  // var per = calculateMarksV1(0, 0, 50);
+  // print(per);
+  // var res2 = calculateMarksV2(math: 30);
+  // print(res2);
+  var isUserExist = users.any((user) =>
+      user['email'] == 'Sincere@april.biz' && user['password'] == '123456');
+  print(isUserExist);
+}
+
+Map calculateStudentMarks(student) {
+  var sub = student['subjects'];
+  int totalMarks = 200;
+  num obtainMarks = sub['English'] + sub['English'];
+  num percentage = obtainMarks / totalMarks * 100;
+  return {
+    "percentage": percentage,
+    "Grade": "A+",
+  };
 }
 
 printTable(table) {
@@ -269,3 +306,23 @@ printTable(table) {
     print(i * table);
   }
 }
+
+void printHelloWorld() {
+  print("Hello World");
+}
+
+String calculateMarksV1([english, urdu, math]) {
+  var percentage = "100%";
+  return percentage;
+}
+
+String calculateMarksV2({int english = 0, int? urdu, required int math}) {
+  var percentage = "100%";
+  return percentage;
+}
+
+
+// Positioned required paramter
+// Positioned optional paramter
+// optional paramter | named paramer
+// named required paramer
