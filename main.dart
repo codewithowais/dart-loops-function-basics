@@ -263,38 +263,36 @@ void main() {
   // printTable(7);
   // printTable(8);
 
-  List<Map> students = [
+  List students = [
     {
       "name": "",
       "rollNo": "",
       "subjects": {
-        "English": 30,
-        "Urdu": 30,
+        "English": 50,
+        "Urdu": 90,
       },
-    },
+    }
   ];
   for (var student in students) {
     var result = calculateStudentMarks(student);
-    // student['percentage'] = result['percentage'];
-    // student['Grade'] = result['Grade'];
-    student
-        .addAll({"percentage": result['percentage'], "Grade": result['Grade']});
+    student['percentage'] = result['percentage'];
+    student['Grade'] = result['Grade'];
   }
-  // print(students);
-  // var per = calculateMarksV1(0, 0, 50);
-  // print(per);
-  // var res2 = calculateMarksV2(math: 30);
-  // print(res2);
-  var isUserExist = users.any((user) =>
-      user['email'] == 'Sincere@april.biz' && user['password'] == '123456');
-  print(isUserExist);
+  print(students);
+  abc(0, 0, 30);
+  abcV2(maths: 30, eng: 30);
+  abcV2(maths: 30);
 }
 
-Map calculateStudentMarks(student) {
-  var sub = student['subjects'];
+abc([eng, urdu, maths]) {}
+abcV2({int? eng, int urdu = 0, required int maths}) {}
+
+calculateStudentMarks(student) {
   int totalMarks = 200;
-  num obtainMarks = sub['English'] + sub['English'];
+  int obtainMarks =
+      student['subjects']['English'] + student['subjects']['Urdu'];
   num percentage = obtainMarks / totalMarks * 100;
+  print(percentage);
   return {
     "percentage": percentage,
     "Grade": "A+",
@@ -311,18 +309,12 @@ void printHelloWorld() {
   print("Hello World");
 }
 
-String calculateMarksV1([english, urdu, math]) {
+dynamic calculateMarks() {
   var percentage = "100%";
   return percentage;
 }
-
-String calculateMarksV2({int english = 0, int? urdu, required int math}) {
-  var percentage = "100%";
-  return percentage;
-}
-
 
 // Positioned required paramter
 // Positioned optional paramter
-// optional paramter | named paramer
-// named required paramer
+// optional paramter | Named paramter
+// required paramter | Named paramter
