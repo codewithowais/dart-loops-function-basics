@@ -2,7 +2,26 @@ import 'package:ecommerceb1/chat.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
+
+  List chats = [
+    {
+      'name': 'codewithowais',
+      'lastMessage': 'Hellloooooo....',
+      'image': '',
+      'status': '',
+      'time': '',
+      'notificationCount': ''
+    },
+    {
+      'name': 'codewithAbs',
+      'lastMessage': 'Hellloooooo ABS....',
+      'image': '',
+      'status': '',
+      'time': '',
+      'notificationCount': ''
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +37,10 @@ class HomeView extends StatelessWidget {
           Text("Action 4"),
         ],
       ),
-      body: ListView(
-        children: [
-          ListTile(
+      body: ListView.builder(
+        itemCount: chats.length,
+        itemBuilder: (context, i) {
+          return ListTile(
             onTap: () {
               Navigator.push(
                 context,
@@ -34,20 +54,11 @@ class HomeView extends StatelessWidget {
               backgroundImage: NetworkImage(
                   'https://media.istockphoto.com/id/1476170969/photo/portrait-of-young-man-ready-for-job-business-concept.jpg?s=2048x2048&w=is&k=20&c=yif473DFhN451o-tNC1tASFFoP5QTOYcqS26dhEbv6U='),
             ),
-            title: const Text("Ali"),
+            title: Text("${chats[i]['name']}"),
             subtitle: const Text('Helloooo........'),
             trailing: const Icon(Icons.notifications_off_outlined),
-          ),
-          const ListTile(
-            tileColor: Colors.blue,
-            leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/ai-generated.jpg'),
-            ),
-            title: Text("Ali"),
-            subtitle: Text('Helloooo........'),
-            trailing: Icon(Icons.notifications_off_outlined),
-          ),
-        ],
+          );
+        },
       ),
       drawer: Drawer(
         child: Container(
