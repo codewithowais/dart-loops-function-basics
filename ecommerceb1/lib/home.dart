@@ -1,9 +1,16 @@
+import 'dart:async';
+
 import 'package:ecommerceb1/chat.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   List chats = [
     {
       'name': 'codewithowais',
@@ -56,9 +63,72 @@ class HomeView extends StatelessWidget {
             ),
             title: Text("${chats[i]['name']}"),
             subtitle: const Text('Helloooo........'),
-            trailing: const Icon(Icons.notifications_off_outlined),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    // var obj = chats[i]['name'];
+                    // chats[i]['name'] = "$obj updated";
+                    // setState(() {});
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => Dialog(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              const Text('This is a typical dialog.'),
+                              const SizedBox(height: 15),
+                              const TextField(
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Password',
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Close'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.edit),
+                ),
+                IconButton(
+                  onPressed: () {
+                    chats.removeAt(i);
+                    setState(() {});
+                  },
+                  icon: const Icon(Icons.delete),
+                ),
+              ],
+            ),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          chats.add({
+            'name': 'codewithowais ${chats.length + 1}',
+            'lastMessage': 'Hellloooooo ABS....',
+            'image': '',
+            'status': '',
+            'time': '',
+            'notificationCount': ''
+          });
+          setState(() {});
+          print(chats);
+        },
+        child: const Icon(Icons.add),
       ),
       drawer: Drawer(
         child: Container(
