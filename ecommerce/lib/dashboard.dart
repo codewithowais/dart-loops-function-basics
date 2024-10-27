@@ -1,9 +1,14 @@
 import 'package:ecommerce/home.dart';
 import 'package:flutter/material.dart';
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
   DashboardView({super.key});
 
+  @override
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
   List chats = [
     {
       "name": "codewithowais",
@@ -24,6 +29,8 @@ class DashboardView extends StatelessWidget {
       'notificationCount': '',
     },
   ];
+
+  TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +54,60 @@ class DashboardView extends StatelessWidget {
               );
             },
             tileColor: Colors.lightBlue,
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(chats[index]['image']),
-            ),
+            // leading: CircleAvatar(
+            //   backgroundImage: NetworkImage(chats[index]['image']),
+            // ),
             title: Text("${chats[index]['name']}"),
-            subtitle: const Text("helllooo.........."),
-            trailing: const Icon(Icons.notifications_off_outlined),
+            // subtitle: const Text("helllooo.........."),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => Dialog(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text('This is a typical dialog.'),
+                              const SizedBox(height: 15),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Close'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+
+                    // var name = chats[index]['name'];
+                    // chats[index]['name'] = "$name updated";
+                    // setState(() {});
+
+                    // print(chats[index]);
+                    // nameController = chats[index]['name'];
+                    // profileController = chats[index]['profile'];
+                    // imageController = chats[index]['image'];
+                    // messageController = chats[index]['message'];
+                  },
+                  icon: const Icon(Icons.edit),
+                ),
+                IconButton(
+                  onPressed: () {
+                    chats.removeAt(index);
+                    setState(() {});
+                  },
+                  icon: const Icon(Icons.delete),
+                )
+              ],
+            ),
           );
         },
       ),
@@ -97,12 +152,17 @@ class DashboardView extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeView(),
-            ),
-          );
+          chats.add({
+            "name": "Ahmed ${chats.length + 1}",
+            'image':
+                'https://cdn.pixabay.com/photo/2016/03/11/02/08/speedometer-1249610_640.jpg',
+            'lastMessage': 'helllooo123', //lastMessageController.text,
+            'messageTime': '', //messageTimeController.text,
+            'status': '', //controller.text,
+            'notificationCount': '', //controller.text,
+          });
+          setState(() {});
+          print(chats);
         },
         child: Icon(Icons.add),
       ),

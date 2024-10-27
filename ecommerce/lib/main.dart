@@ -1,5 +1,7 @@
+import 'package:ecommerce/about.dart';
 import 'package:ecommerce/dashboard.dart';
 import 'package:ecommerce/login.dart';
+import 'package:ecommerce/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginView(),
+      home: SplashView(),
     );
   }
 }

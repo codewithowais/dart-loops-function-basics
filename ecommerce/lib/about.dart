@@ -9,7 +9,18 @@ class AboutView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
       ),
-      body: Center(child: Text("About Screen")),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 200,
+          height: 200,
+          color: Colors.red,
+          child: const Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 16.0, 8.0, 8.0),
+            child: Text("Hello"),
+          ),
+        ),
+      ),
     );
   }
 }

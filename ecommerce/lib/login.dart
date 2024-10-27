@@ -14,9 +14,27 @@ class _LoginViewState extends State<LoginView> {
 
   TextEditingController passController = TextEditingController();
 
-  login() {
-    print(emailController.text);
-    print(passController.text);
+  login(context) {
+    if (emailController.text == 'admin@gmail.com' &&
+        passController.text == '123456') {
+      final snackBar = SnackBar(
+        content: const Text('Login successful........'),
+        action: SnackBarAction(
+          label: 'cancel',
+          onPressed: () {
+            // Some code to undo the change.
+          },
+        ),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      print("Login successful......");
+      emailController.clear();
+      passController.clear();
+    } else {
+      emailController.text = 'admin@gmail.com';
+      passController.text = '123456';
+      print("Login failed");
+    }
   }
 
   @override
@@ -42,14 +60,18 @@ class _LoginViewState extends State<LoginView> {
             TextField(
               controller: passController,
               obscureText: !showPass,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
                 labelText: 'Password',
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.visibility),
+                  onPressed: () {},
+                ),
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                login();
+                login(context);
               },
               child: Text("Login"),
             ),
