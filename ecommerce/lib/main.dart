@@ -1,6 +1,8 @@
 import 'package:ecommerce/about.dart';
 import 'package:ecommerce/dashboard.dart';
 import 'package:ecommerce/login.dart';
+import 'package:ecommerce/newDashboard.dart';
+import 'package:ecommerce/newDashboardv2.dart';
 import 'package:ecommerce/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      home: Newdashboardv2View(),
     );
   }
 }
