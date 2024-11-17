@@ -1,4 +1,4 @@
-import 'package:ecommerceb1/contact.dart';
+import 'package:ecommerceb1/old/contact.dart';
 import 'package:flutter/material.dart';
 
 class ChatView extends StatelessWidget {

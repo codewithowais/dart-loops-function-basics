@@ -1,14 +1,14 @@
-import 'package:ecommerceb1/custom-expanded-widget.dart';
-import 'package:ecommerceb1/daraz-home-v2.dart';
-import 'package:ecommerceb1/daraz-home.dart';
-import 'package:ecommerceb1/home.dart';
-import 'package:ecommerceb1/login.dart';
-import 'package:ecommerceb1/newDashboard.dart';
-import 'package:ecommerceb1/newDashboardV2.dart';
-import 'package:ecommerceb1/splash.dart';
+import 'package:ecommerceb1/firebase-screens/firebase-login.dart';
+import 'package:ecommerceb1/firebase_options.dart';
+import 'package:ecommerceb1/old/daraz-home-v2.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: DarazHomeV2View(),
+      home: FirebaseLogin(),
     );
   }
 }
