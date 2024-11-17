@@ -1,4 +1,4 @@
-import 'package:ecommerce/screen2.dart';
+import 'package:ecommerce/old/screen2.dart';
 import 'package:flutter/material.dart';
 
 class Newdashboardv2View extends StatefulWidget {

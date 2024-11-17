@@ -1,5 +1,5 @@
-import 'package:ecommerce/home.dart';
-import 'package:ecommerce/screen2.dart';
+import 'package:ecommerce/old/home.dart';
+import 'package:ecommerce/old/screen2.dart';
 import 'package:flutter/material.dart';
 
 class NewdashboardView extends StatefulWidget {

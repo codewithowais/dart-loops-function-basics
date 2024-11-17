@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:ecommerce/about.dart';
+import 'package:ecommerce/old/about.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
