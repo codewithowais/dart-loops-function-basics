@@ -1,4 +1,6 @@
+import 'package:ecommerceb1/firebase-screens/firebase-add-user.dart';
 import 'package:ecommerceb1/firebase-screens/firebase-login.dart';
+import 'package:ecommerceb1/firebase-screens/get-firebase-user.dart';
 import 'package:ecommerceb1/firebase_options.dart';
 import 'package:ecommerceb1/old/daraz-home-v2.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: FirebaseLogin(),
+      home: GetFirebaseUser(),
     );
   }
 }
