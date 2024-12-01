@@ -26,6 +26,8 @@ class _FireBaseLoginState extends State<FireBaseLogin> {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
+    } catch(e) {
+      print(e);
     }
   }
 

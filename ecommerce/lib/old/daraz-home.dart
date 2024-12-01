@@ -39,6 +39,7 @@ class _DarazHomeViewState extends State<DarazHomeView> {
                     width: 100,
                     color: Colors.blue,
                     child: Text("Item $index"),
+                    decoration: BoxDecoration(),
                   );
                 }),
           ),

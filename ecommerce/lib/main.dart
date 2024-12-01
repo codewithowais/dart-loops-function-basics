@@ -1,5 +1,7 @@
+import 'package:ecommerce/firebase-screens/firebase-add-user.dart';
 import 'package:ecommerce/firebase-screens/firebase-login.dart';
 import 'package:ecommerce/firebase-screens/firebase-signup.dart';
+import 'package:ecommerce/firebase-screens/get-firebase-users.dart';
 import 'package:ecommerce/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FireBaseLogin(),
+      home: GetFirebaseUsers(),
     );
   }
 }
