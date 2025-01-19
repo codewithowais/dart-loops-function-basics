@@ -7,14 +7,17 @@ class ApiService {
   Future getUsersData() async {
     var url = Uri.parse(baseUrl);
     var response = await http.get(url);
+    print("this is status  ${response.statusCode}");
     var users = jsonDecode(response.body);
-    print(users);
     return users;
   }
 
   Future getUserById(id) async {
-    var url = Uri.parse(baseUrl);
-    var response = await http.get(url);
+    var url = Uri.parse('${baseUrl}/${id}');
+    var response = await http.get(
+      url,
+    );
+    // var response = await http.post(url, body: jsonEncode({"name": "sa4343"}));
     var user = jsonDecode(response.body);
     print(user);
     return user;
