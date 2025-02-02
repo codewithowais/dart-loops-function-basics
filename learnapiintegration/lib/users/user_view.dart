@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learnapiintegration/getUserInfo.dart';
 import 'package:learnapiintegration/users/user_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserView extends StatelessWidget {
   UserView({super.key});
 
   UserController userControl = Get.put(UserController());
+  final UserControl1 = Get.find<UserController>();
+  final UserControl12 = Get.lazyPut<UserController>;
+
+  localData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    var email = await prefs.getString('email');
+    print("email is this $email");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +23,9 @@ class UserView extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              // Navigator.pop(context);
+              // Get.back();
+              // localData();
               // userControl.dispose();
             },
             icon: Icon(Icons.back_hand)),
@@ -39,7 +50,8 @@ class UserView extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: userControl.userDataList.length,
                   itemBuilder: (context, sohail) {
-                    return Text("${userControl.userDataList[sohail]["name"]}");
+                    return Text(
+                        "${userControl.userDataList[sohail].address?.geo!.lat}");
                   });
             })
           ],

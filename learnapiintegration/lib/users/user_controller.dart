@@ -1,13 +1,14 @@
 import 'package:get/get.dart';
+import 'package:learnapiintegration/models/users_model.dart';
 import 'package:learnapiintegration/services/api_service.dart';
 
 class UserController extends GetxController {
   ApiService apiService = ApiService();
-  List userDataList = [];
+  List<UsersModel> userDataList = [];
 
   getData() async {
     var usersData = await apiService.getUsersData();
-    // print(usersData);
+    print("2046 ${usersData}");
     userDataList = usersData;
     update();
   }

@@ -22,8 +22,8 @@ class _GetuserinfoViewState extends State<GetuserinfoView> {
           builder: (context, snapShot) {
             if (snapShot.hasData) {
               return ListTile(
-                title: Text("${snapShot.data['name']}"),
-                subtitle: Text("${snapShot.data['email']}"),
+                title: Text("${snapShot.data.name}"),
+                subtitle: Text("${snapShot.data.email}"),
               );
             }
             return const CircularProgressIndicator();
